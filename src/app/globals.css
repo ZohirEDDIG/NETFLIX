@@ -1,1 +1,85 @@
+@import url(https://fonts.googleapis.com/css?family=Mozilla+Text:200,300,regular,500,600,700);
 @import 'tailwindcss';
+
+@theme {
+    --color-main: #ff0000;
+}
+
+body { 
+    font-family: 'Mozilla Text', sans-serif;
+}
+
+a {
+    user-select: none;
+}
+
+button {
+    cursor: pointer;
+    user-select: none;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+}
+
+.background {
+    background: linear-gradient(rgba(19, 19, 22, 0.6), rgba(19, 19, 22, 0.6)), url('../../public/background.jpg');
+    background-size: cover;
+}
+
+.login-form {
+    background: rgba(5, 5, 5, 0.7);
+}
+
+.login-email-input-container {
+    position: relative;
+}
+
+
+.login-email-input-container::before {
+    content: 'Email or mobile number';
+}
+
+.login-password-input-container::before {
+    content: 'Password';
+}
+
+.login-email-input-container::before,
+.login-password-input-container::before {
+    color: #d1d5dc;
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.login-email-input-container:has(.login-email-input:focus)::before,
+.login-email-input-container:has(.login-email-input:not(:placeholder-shown))::before,
+.login-password-input-container:has(.login-password-input:focus)::before,
+.login-password-input-container:has(.login-password-input:not(:placeholder-shown))::before  {
+    top: 16px;
+    font-size: 14px;
+}
+
+.sign-in-code {
+    background: rgba(50, 50, 50, 0.7);
+}
+
+.remember-me-container:has(.remember-me:checked)::before {
+    content: '✓';
+    color: #000;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.remember-me:checked:hover {
+    background-color: var(--color-gray-400);
+}
